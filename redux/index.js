@@ -34,6 +34,20 @@ export function combineReducers(obj) {
 }
 
 
+export function applyMiddleware(middle) {
+    return function (createStore) {
+        return function (reducer) {
+            let store = createStore(reducer)
+            let middleWare = middle(store)
+            let middleDispatch = middleWare(store.dispatch)
+            return {
+                ...store,
+                dispatch: middleDispatch
+            }
+        }
+    }
+}
+
 // combineReducers({
 //     a: reducer,
 //     b: reducer2,
