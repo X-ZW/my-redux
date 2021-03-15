@@ -16,7 +16,7 @@ class Demo extends React.Component {
         console.log(this.props);
         return (
         <div>
-            <h2 style={{color: this.props.color}}>xzw</h2>
+            <h2 style={{color: this.props.state.a.color}}>xzw</h2>
             <button onClick={this.changeColor}>变换颜色</button>
         </div>
     )
@@ -24,4 +24,4 @@ class Demo extends React.Component {
     
 }
 
-export default connect((state)=>({color: state.color}), (dispatch) => ({dispatch}))(Demo)
+export default connect((state)=>({state}), (dispatch) => ({dispatch}))(Demo)

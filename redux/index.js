@@ -23,3 +23,18 @@ export function createStore(reducer) {
         subscribe,
     }
 }
+
+export function combineReducers(obj) {
+    return function (state ={}, action) {
+        Object.keys(obj).forEach((key) => {
+            state[key] = obj[key](state[key], action)
+        })
+        return state
+    }
+}
+
+
+// combineReducers({
+//     a: reducer,
+//     b: reducer2,
+// })

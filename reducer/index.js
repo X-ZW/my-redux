@@ -25,4 +25,16 @@ function reducer(state = initState, action) {
     }
 }
 
-export default reducer
+function reducer2(state = {test: 1}, action) {
+    switch (action.type) {
+        case 'add':
+            return {
+                ...state,
+                count: state.count + action.count
+            }
+        default:
+            return { ...state }
+    }
+}
+
+export { reducer, reducer2 }

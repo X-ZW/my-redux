@@ -1,6 +1,9 @@
 // import { createStore } from 'redux';
-import { createStore } from '../redux'
-import reducer from '../reducer/index.js'
+import { createStore,combineReducers } from '../redux'
+import {reducer,reducer2} from '../reducer/index.js'
 
-const store = createStore(reducer)
+const store = createStore(combineReducers({
+    a: reducer,
+    b: reducer2
+}))
 export default store
