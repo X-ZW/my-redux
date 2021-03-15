@@ -1,5 +1,6 @@
 const initState = {
-    count: 0
+    count: 0,
+    color: `rgb(0,0,0)`
 }
 
 function reducer(state = initState, action) {
@@ -14,8 +15,13 @@ function reducer(state = initState, action) {
                 ...state,
                 count: state.count - action.count
             }
+        case 'changeColor':
+            return {
+                ...state,
+                color: action.color
+            }
         default:
-            return {...state}
+            return { ...state }
     }
 }
 
